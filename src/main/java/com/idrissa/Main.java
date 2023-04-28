@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class Main {
@@ -13,30 +15,40 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 @GetMapping("/api/v1/listing")
-    public GreetingFn greeting() {
-        return new GreetingFn("Hello spring boot");
+    public DistrictListing district() {
+    DistrictListing response = new DistrictListing(
+            "Rwanda",
+            List.of("Kayonza", "Nyarugenge", "Rusizi"),
+            new Mayor("Muvunyi Idrissa", 34)
+    );
+    return response;
     }
 
-//    record GreetingFn(String greeting){}
+    record Mayor(String name, int age){}
+    record DistrictListing(
+            String country,
+            List<String> districts,
+            Mayor mayor
+            ){}
 
-    class GreetingFn{
-        private final String greeting;
-
-        GreetingFn(String greeting) {
-            this.greeting = greeting;
-        }
-
-        public String getGreeting() {
-            return greeting;
-        }
-
-        @Override
-        public String toString() {
-            return "GreetingFn{" +
-                    "greeting='" + greeting + '\'' +
-                    '}';
-        }
-
-
-    }
+//    class GreetingFn{
+//        private final String greeting;
+//
+//        GreetingFn(String greeting) {
+//            this.greeting = greeting;
+//        }
+//
+//        public String getGreeting() {
+//            return greeting;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return "GreetingFn{" +
+//                    "greeting='" + greeting + '\'' +
+//                    '}';
+//        }
+//
+//
+//    }
 }
