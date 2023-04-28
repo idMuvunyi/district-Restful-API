@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
-@GetMapping("/api/v1/listing")
+@GetMapping("/api/v1/gov/district")
     public DistrictListing district() {
     DistrictListing response = new DistrictListing(
             "Rwanda",
