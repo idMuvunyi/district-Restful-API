@@ -31,24 +31,4 @@ public class Main {
             Mayor mayor
             ){}
 
-//    class GreetingFn{
-//        private final String greeting;
-//
-//        GreetingFn(String greeting) {
-//            this.greeting = greeting;
-//        }
-//
-//        public String getGreeting() {
-//            return greeting;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "GreetingFn{" +
-//                    "greeting='" + greeting + '\'' +
-//                    '}';
-//        }
-//
-//
-//    }
 }
