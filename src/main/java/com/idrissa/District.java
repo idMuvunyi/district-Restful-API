@@ -1,8 +1,19 @@
 package com.idrissa;
 
-import java.util.Objects;
+import jakarta.persistence.*;
 
+import java.util.Objects;
+@Entity
 public class District {
+    @Id
+    @SequenceGenerator(
+            name = "district_id_sequence",
+            sequenceName = "district_id_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "district_id_sequence"
+    )
    private Integer id;
    private String districtName;
 
