@@ -14,21 +14,9 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
-@GetMapping("/api/v1/gov/district")
-    public DistrictListing district() {
-    DistrictListing response = new DistrictListing(
-            "Rwanda",
-            List.of("Kayonza", "Nyarugenge", "Rusizi"),
-            new Mayor("Muvunyi Idrissa", 34)
-    );
-    return response;
+
+
+    public List<District> getDistricts() {
+        return List.of();
     }
-
-    record Mayor(String name, int age){}
-    record DistrictListing(
-            String country,
-            List<String> districts,
-            Mayor mayor
-            ){}
-
 }
