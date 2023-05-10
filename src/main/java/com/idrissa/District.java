@@ -8,7 +8,8 @@ public class District {
     @Id
     @SequenceGenerator(
             name = "district_id_sequence",
-            sequenceName = "district_id_sequence"
+            sequenceName = "district_id_sequence",
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
