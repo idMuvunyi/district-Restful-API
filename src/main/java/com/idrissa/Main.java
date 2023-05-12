@@ -39,8 +39,8 @@ public class Main {
 
 
 
-    @DeleteMapping
-    public void deleteDistrict(@RequestBody Integer id){
+    @DeleteMapping("{districtId}")
+    public void deleteDistrict(@PathVariable("districtId") Integer id){
         districtRepository.deleteById(id);
     }
 }
