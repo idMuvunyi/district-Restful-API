@@ -3,9 +3,7 @@ package com.idrissa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,22 @@ public class Main {
     @GetMapping
     public List<District> getDistricts() {
         return districtRepository.findAll();
+    }
+
+    record NewDistrictRequest(String district_name){}
+    @PostMapping
+    public void addDistrict( @RequestBody NewDistrictRequest request){
+        // get reference to district modal
+        District district = new District();
+        // set values
+        district.setDistrictName(request.district_name());
+        districtRepository.save(district);
+    }
+
+
+
+    @DeleteMapping
+    public void deleteDistrict(@RequestBody Integer id){
+        districtRepository.deleteById(id);
     }
 }
