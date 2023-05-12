@@ -43,4 +43,13 @@ public class Main {
     public void deleteDistrict(@PathVariable("districtId") Integer id){
         districtRepository.deleteById(id);
     }
+    @PutMapping("{districtId}")
+    public void updateDistrict(@PathVariable("districtId") Integer id, @RequestBody NewDistrictRequest request){
+        District district = new District();
+        if(districtRepository.findById(id).isPresent()){
+            district.setDistrictName(request.district_name());
+            districtRepository.save(district);
+        }
+
+    }
 }
